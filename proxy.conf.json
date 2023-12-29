@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://localhost:7001",
+    "changeOrigin": true,
+    "secure": false,
+    "headers": {
+      "Connection": "Keep-Alive"
+    }
+  }
+}

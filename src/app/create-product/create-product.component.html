@@ -1,0 +1,31 @@
+<p>Create Product</p>
+
+<form
+    enctype="multipart/form-data"
+    [formGroup]="uploadForm"
+    (ngSubmit)="onSubmit()"
+>
+    <div>
+        <label for="bucket">
+            Bucket
+        </label>
+        <input id="bucket" type="text" formControlName="bucket" />
+    </div>
+
+    <div>
+        <label for="file">
+            Photo
+        </label>
+        <input id="file" type="file" accept="image/*" (change)="showPreview($event)" />
+        <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+            <img [src]="imageURL" [alt]="uploadForm.value.name">
+        </div>
+    </div>
+    <button
+        type="submit"
+        class="button"
+        (ngSubmit)="onSubmit()"
+    >
+        Save
+    </button>
+</form>

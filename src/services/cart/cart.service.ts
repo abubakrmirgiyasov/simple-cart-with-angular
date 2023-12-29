@@ -1,5 +1,5 @@
 import {Injectable, OnInit} from '@angular/core';
-import { Product } from "../../products";
+import { Product } from "../../app/products";
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,11 @@ export class CartService {
 
   removeItem(product: Product): void {
     this.items = this.items.filter(item => item.id !== product.id);
+  }
+
+  clearCart(): Product[] {
+    this.items = [];
+    return this.items;
   }
 
 }

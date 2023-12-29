@@ -1,3 +1,6 @@
+import { NgDompurifySanitizer } from "@tinkoff/ng-dompurify";
+import { TuiRootModule, TuiDialogModule, TuiAlertModule, TUI_SANITIZER } from "@taiga-ui/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -9,34 +12,37 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from "./product-details/product-details.component";
 import { CartComponent } from "./cart/cart.component";
+import { CreateProductComponent } from "./create-product/create-product.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   imports: [
+    HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    TuiRootModule,
+    TuiDialogModule,
+    TuiAlertModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
-      { path: 'cart', component: CartComponent }
-    ])
-  ],
+        { path: '', component: ProductListComponent },
+        { path: 'products/:productId', component: ProductDetailsComponent },
+        { path: 'cart', component: CartComponent },
+        { path: 'create', component: CreateProductComponent }
+      ])
+    ],
   declarations: [
     AppComponent,
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
     ProductDetailsComponent,
-    CartComponent
+    CartComponent,
+    CreateProductComponent
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
+  providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}]
 })
 export class AppModule { }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
