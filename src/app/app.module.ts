@@ -22,8 +22,6 @@ import { HttpClientModule } from "@angular/common/http";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     TuiRootModule,
-    TuiDialogModule,
-    TuiAlertModule,
     RouterModule.forRoot([
         { path: '', component: ProductListComponent },
         { path: 'products/:productId', component: ProductDetailsComponent },
